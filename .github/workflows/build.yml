@@ -12,8 +12,34 @@ on:
 
 jobs:
   build:
-    uses:
-      bigbird023/github-actions/.github/workflows/angular-build-workflow.yaml@main 
-    with:
-      TESTCOVERAGE_THRESHOLD: 0
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup.NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.413'  
+
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0
+      with:
+          versionSpec: '5.x'
+
+    - name: Determine Version
+      id: gitversion # step id used as reference for output values
+      uses: gittools/actions/gitversion/execute@v0.9
+
+
+    # uses:
+    #   bigbird023/github-actions/.github/workflows/angular-build-workflow.yaml@main 
+    # with:
+    #   TESTCOVERAGE_THRESHOLD: 0
 
