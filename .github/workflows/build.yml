@@ -38,7 +38,9 @@ jobs:
 
     - name: Determine Version
       id: gitversion # step id used as reference for output values
-      uses: gittools/actions/gitversion/execute@v0.9    - name: Output Version
+      uses: gittools/actions/gitversion/execute@v0.9    
+    
+    - name: Output Version
       run: |
         echo "Major: ${{ steps.gitversion.outputs.major }}"
         echo "Minor: ${{ steps.gitversion.outputs.minor }}"
