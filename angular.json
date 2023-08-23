@@ -32,6 +32,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://www.github.com/bigbird023/demo-cicd-webapp/",
               "budgets": [
                 {
                   "type": "initial",
