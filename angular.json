@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": false,
             "outputPath": "dist/demo-cicd-webapp",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -31,6 +32,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://bigbird023.github.io/demo-cicd-cd_dev/",
               "budgets": [
                 {
                   "type": "initial",
